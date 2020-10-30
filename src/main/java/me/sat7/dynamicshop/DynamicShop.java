@@ -142,6 +142,8 @@ public final class DynamicShop extends JavaPlugin implements Listener {
         LangUtil.ccLang = new CustomConfig();
         ShopUtil.ccShop = new CustomConfig();
         ccUser = new CustomConfig();
+        File file = new File(this.getDataFolder() + File.separator + "User.yml");
+        if (file.exists()) file.delete();
         StartPage.ccStartPage = new CustomConfig();
         ccSign = new CustomConfig();
         WorthUtil.ccWorth = new CustomConfig();
