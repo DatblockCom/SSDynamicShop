@@ -75,12 +75,12 @@ public final class DynamicShop extends JavaPlugin implements Listener {
         new UpdateCheck();
 
         // bstats
-        Metrics metrics = new Metrics(this);
+        //Metrics metrics = new Metrics(this);
 
         // Optional: Add custom charts
         // todo: 이거 지워야함... 그냥 지우니까 에러뜸.
         // TODO delete this without it causing errors
-        metrics.addCustomChart(new Metrics.SimplePie("chart_id", () -> "My value"));
+        //metrics.addCustomChart(new Metrics.SimplePie("chart_id", () -> "My value"));
     }
 
     public void startCullLogsTask() {

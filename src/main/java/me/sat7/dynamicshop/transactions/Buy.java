@@ -1,11 +1,7 @@
 package me.sat7.dynamicshop.transactions;
 
-import java.util.Arrays;
-import java.util.HashMap;
-
 import me.sat7.dynamicshop.events.ShopBuySellEvent;
 import org.bukkit.Bukkit;
-import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
@@ -136,22 +132,22 @@ public final class Buy {
 
     public static int getEmptySlots(Player p) {
         PlayerInventory inventory = p.getInventory();
-        ItemStack[] cont = inventory.getContents();
-        int i = 0;
-        for (ItemStack item : cont)
-            if (item != null && item.getType() != Material.AIR) {
-                i++;
+        int b = 0;
+        for (int i = 0; i < 36; i++) {
+            ItemStack item = inventory.getItem(i);
+            if (item == null || item.getType() == Material.AIR) {
+                b++;
             }
-        return 36 - i;
+        }
+        return b;
     }
 
     public static boolean hasSpace(PlayerInventory inventory, ItemStack item, int amount, int maxStackSize) {
         int available_space = 0;
         int i = 0;
+        ItemStack[] contents = inventory.getContents();
         while (i != inventory.getContents().length) {
-            ItemStack[] contents = inventory.getContents();
             ItemStack stack = contents[i];
-
             if (stack == null) {
                 i++;
                 continue;
